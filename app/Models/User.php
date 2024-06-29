@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Support\Str;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -46,5 +48,10 @@ class User extends Authenticatable
         static::creating(function ($model) {
             $model->uuid = Str::uuid();
         });
+    }
+
+    public function canAccessPanel(): bool
+    {
+        return true;
     }
 }
