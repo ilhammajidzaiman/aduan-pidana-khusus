@@ -7,85 +7,66 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="mx-auto max-w-screen-sm">
-    @yield('content')
+<body class="mx-auto max-w-md">
+    <div class="overflow-hidden">
+        @yield('content')
+    </div>
 
-
-
-
-
-    <div
-        class="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-white border border-gray-200 rounded-full bottom-4 left-1/2">
-        <div class="grid h-full max-w-lg grid-cols-5 mx-auto">
-            <button data-tooltip-target="tooltip-home" type="button"
-                class="inline-flex flex-col items-center justify-center px-5 rounded-s-full hover:bg-gray-50 group">
-                <svg class="w-5 h-5 mb-1 text-gray-500 group-hover:text-blue-600"
+    <div class="fixed z-50 w-full h-16 max-w-md -translate-x-1/2 bg-white border border-gray-200 bottom-0 left-1/2">
+        <div class="grid h-full max-w-md grid-cols-4 mx-auto">
+            <a href="/pages/" data-tooltip-target="tooltip-home" type="button"
+                class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 group">
+                <svg class="w-5 h-5 mb-1 group-hover:text-green-600 {{ request()->routeIs('dashboard') ? 'text-green-500' : 'text-gray-500' }}"
                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                     <path
                         d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
                 </svg>
                 <span class="sr-only">Home</span>
-            </button>
-            <div id="tooltip-home" role="tooltip"
-                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip ">
-                Home
-                <div class="tooltip-arrow" data-popper-arrow></div>
-            </div>
-            <button data-tooltip-target="tooltip-wallet" type="button"
-                class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
-                <svg class="w-5 h-5 mb-1 text-gray-500 group-hover:text-blue-600"
-                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            </a>
+
+            <a href="/pages/report" data-tooltip-target="tooltip-report" type="button"
+                class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="w-6 h-6 mb-1 group-hover:text-green-600 {{ request()->routeIs('report') ? 'text-green-500' : 'text-gray-500' }}">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M2 3m0 2a2 2 0 0 1 2 -2h16a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-16a2 2 0 0 1 -2 -2z" />
                     <path
-                        d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z" />
+                        d="M19 9c.513 0 .936 .463 .993 1.06l.007 .14v7.2c0 1.917 -1.249 3.484 -2.824 3.594l-.176 .006h-10c-1.598 0 -2.904 -1.499 -2.995 -3.388l-.005 -.212v-7.2c0 -.663 .448 -1.2 1 -1.2h14zm-5 2h-4l-.117 .007a1 1 0 0 0 0 1.986l.117 .007h4l.117 -.007a1 1 0 0 0 0 -1.986l-.117 -.007z" />
+                </svg>
+                <span class="sr-only">Pelaporan</span>
+            </a>
+            <div id="tooltip-report" role="tooltip"
+                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip ">
+                Pelaporan
+                <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            <a href="/pages/support" data-tooltip-target="tooltip-profile" type="button"
+                class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="w-6 h-6 mb-1 group-hover:text-green-600 {{ request()->routeIs('support') ? 'text-green-500' : 'text-gray-500' }}">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path
-                        d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z" />
+                        d="M18 3a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-4.724l-4.762 2.857a1 1 0 0 1 -1.508 -.743l-.006 -.114v-2h-1a4 4 0 0 1 -3.995 -3.8l-.005 -.2v-8a4 4 0 0 1 4 -4zm-2.8 9.286a1 1 0 0 0 -1.414 .014a2.5 2.5 0 0 1 -3.572 0a1 1 0 0 0 -1.428 1.4a4.5 4.5 0 0 0 6.428 0a1 1 0 0 0 -.014 -1.414m-5.69 -4.286h-.01a1 1 0 1 0 0 2h.01a1 1 0 0 0 0 -2m5 0h-.01a1 1 0 0 0 0 2h.01a1 1 0 0 0 0 -2" />
                 </svg>
-                <span class="sr-only">Wallet</span>
-            </button>
-            <div id="tooltip-wallet" role="tooltip"
+                <span class="sr-only">Support</span>
+            </a>
+            <div id="tooltip-profile" role="tooltip"
                 class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip ">
-                Wallet
+                Profile
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
-            <div class="flex items-center justify-center">
-                <button data-tooltip-target="tooltip-new" type="button"
-                    class="inline-flex items-center justify-center w-10 h-10 font-medium bg-blue-600 rounded-full hover:bg-blue-700 group focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800">
-                    <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 18 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 1v16M1 9h16" />
-                    </svg>
-                    <span class="sr-only">New item</span>
-                </button>
-            </div>
-            <div id="tooltip-new" role="tooltip"
-                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
-                Create new item
-                <div class="tooltip-arrow" data-popper-arrow></div>
-            </div>
-            <button data-tooltip-target="tooltip-settings" type="button"
-                class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
-                <svg class="w-5 h-5 mb-1 text-gray-500 group-hover:text-blue-600"
-                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2" />
-                </svg>
-                <span class="sr-only">Settings</span>
-            </button>
-            <div id="tooltip-settings" role="tooltip"
-                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip ">
-                Settings
-                <div class="tooltip-arrow" data-popper-arrow></div>
-            </div>
-            <button data-tooltip-target="tooltip-profile" type="button"
-                class="inline-flex flex-col items-center justify-center px-5 rounded-e-full hover:bg-gray-50 group">
-                <svg class="w-5 h-5 mb-1 text-gray-500 group-hover:text-blue-600"
-                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+
+            <a href="/pages/profile" data-tooltip-target="tooltip-profile" type="button"
+                class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 group">
+                <svg class="w-5 h-5 mb-1 group-hover:text-green-600 {{ request()->routeIs('profile') ? 'text-green-500' : 'text-gray-500' }}" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                     <path
                         d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z" />
                 </svg>
                 <span class="sr-only">Profile</span>
-            </button>
+            </a>
             <div id="tooltip-profile" role="tooltip"
                 class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip ">
                 Profile
